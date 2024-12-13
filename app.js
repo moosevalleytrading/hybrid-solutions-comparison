@@ -18,17 +18,16 @@ function updateOnlineStatus() {
     }
 }
 
-// Online/Offline event listeners
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
-// Service worker registration
+// Service worker registration with GitHub Pages path
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('/hybrid-solutions-comparison/sw.js')
             .then(registration => {
                 console.log('ServiceWorker registration successful');
-                updateOnlineStatus(); // Initial check
+                updateOnlineStatus();
             })
             .catch(err => {
                 console.error('ServiceWorker registration failed: ', err);
@@ -36,7 +35,6 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Add installation prompt for PWA
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
