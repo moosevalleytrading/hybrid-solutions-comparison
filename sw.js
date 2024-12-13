@@ -1,9 +1,9 @@
 const CACHE_NAME = 'hybrid-solutions-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/app.js',
+    '/hybrid-solutions-comparison/',
+    '/hybrid-solutions-comparison/index.html',
+    '/hybrid-solutions-comparison/styles.css',
+    '/hybrid-solutions-comparison/app.js',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2',
