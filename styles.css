@@ -7,6 +7,26 @@ body {
     min-height: 100vh;
 }
 
+#offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1000;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.offline-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .framework-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -64,12 +84,29 @@ body {
 }
 
 .section-content {
-    padding: 20px;
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 20px;
 }
 
 .section-content.active {
-    display: block;
+    max-height: 2000px;
+    padding: 20px;
+    transition: max-height 0.5s ease-in;
+}
+
+.framework-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.framework-detail {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .references {
@@ -79,8 +116,60 @@ body {
     border-radius: 15px;
 }
 
+.reference-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reference-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+/* Accessibility Enhancements */
+:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .framework-cards {
+    .framework-comparison {
         grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: 1.2em;
+    }
+
+    .framework-detail {
+        padding: 15px;
+    }
+
+    body {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .framework-detail li {
+        font-size: 0.9em;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .card {
+        padding: 15px;
     }
 }
